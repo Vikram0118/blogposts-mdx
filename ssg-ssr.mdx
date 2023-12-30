@@ -8,17 +8,35 @@ tags: ['AWS','react','nextjs','typescript']
 cover_image: true
 ---
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
 
-You can use Static Generation for many types of pages, including:
+## 2. Understand the settings 
 
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
+You pass in your content to the `readingDuration` function this package provides, but there are some optional settings, too. You can set the `wordsPerMinute` (defaults to 200), and if you want, you can set the returned value to include an emoji (which is an hourglass ⏳). 
 
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+```tsx
+import readingDuration from 'reading-duration'
 
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+const readingTime = readingDuration(rawMDXContent, {
+  wordsPerMinute: 100, 
+  emoji: false,
+})
+```
 
-In that case, you can use **Server-Side Rendering**. It will be slower, but the pre-rendered page will always be up-to-date. Or you can skip pre-rendering and use client-side JavaScript to populate data.
+## 3. Add reading-duration to Your Next.js Blog
+
+I store my MDX blog article files on GitHub and fetch them as my Next.js blog builds static pages. Below is an abbreviated version of what is happening in my code: 
+
+```tsx
+export async function getPostByName(fileName: string) {
+    const res = await fetch(`my-github-url/${fileName}`)
+
+    const rawMDX = await res.text()
+
+    const duration = readingDuration(rawMDX, {
+        emoji: false,
+    })
+}
+```
+I save the above `duration` value with the other `front matter` for the blog post. You can see I went with the default `wordsPerMinute` and declined the default emoji. When I use the duration value, I use an open book 📖 emoji instead.
+
+You can see this value on [my blog homepage](https://www.davegray.codes/) for each article and near the top of each blog article page, too.
