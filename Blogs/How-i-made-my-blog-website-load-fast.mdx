@@ -46,8 +46,6 @@ I used the most advanced features of `Next.js 14` such as ` Server Side Renderin
 
 `Static Site Generation(SSG)` is a technique in which we pre-render a page at build time. We fetch data from an external API or directly from a database, and pass this data down to the entire page as it's being generated during the build. Pages built with SSG can also be cached via CDN unlike pages built using SSR. So response time is significantly low compared to SSR. Gives better performance and SEO score.
 
-> There are no silver bullets to Web performance. Simple static pages benefit being server-rendered with minimal Javascript. 
-
 All the pages in this wesbite are SSG pages, which mean all these pages are prerendered and ready to server. That's why you experience almost no lag while moving across pages.
 
 `Incremental Static Regeneration(ISR)` is an awesome technique introduced by Next.js to tackle stale or outdated pages problems in Static Site Generation. It allows us to revalidate our application without rebuilding the whole app. Thre are two types of revalidation `Time-based revalidation` and `On-demand revalidation` . 
@@ -62,17 +60,30 @@ And this is how i made my blog website load in 0.4 seconds. Using all the modern
 
 <h4>My Performance metrix</h4>
 
-Performance ans Structure - `100%` . Thanks to all the offerings by `Next.js`
+I have done testing in [GT metrix](https://gtmetrix.com/reports/blog-vikramp.vercel.app/m992KuIl/) and Google Lighthouse.
 
-LCB: 285 ms. How i got such a score ? I didn't use Google font import in my CSS file. I used font from `next/font/google`. So that way, I avoiding the delay from Google's response and I [pre build my pages with the font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) I want.
+Performance ans Structure - `100 %` . 
+
+> There are no silver bullets to Web performance. Simple static pages benefit being server-rendered with minimal Javascript. 
+
+LCB: 285 ms. How i got such a score ? I didn't use Google font import in my CSS file. I used font from `next/font/google`. So that way, I m avoiding the delay from Google's response and I [pre build my pages with the font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) I want.
 
 CLS: 0 (Perfect)
 
 <CustomImage src="https://raw.githubusercontent.com/Vikram0118/blogposts-mdx/main/Images/How-i-made-my-blog-website-load-fast.png" alt="Gt metrix performance values" priority="true" />
 
-<h4>Fully Loading Time : 375 ms </h4>
+`Fully Loading Time : 375 ms`
 
 <CustomImage src="https://raw.githubusercontent.com/Vikram0118/blogposts-mdx/main/Images/page-details.png" alt="Gt metrix full details" priority="true" />
+
+Google Lighthouse metrix:
+
+<CustomImage src="https://raw.githubusercontent.com/Vikram0118/blogposts-mdx/main/Images/lighthouse-data.png" alt="Google light house metrix" priority="true" />
+
+`Performance - 100 %` 
+
+Next.js allows me to generate Meta data for all the pages and maximizes SEO.
+
 
 <h4>Conclusion</h4>
 
