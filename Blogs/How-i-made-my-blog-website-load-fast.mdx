@@ -6,7 +6,8 @@ modified: '2023-12-27'
 tags: ['Next.js', 'React', 'Typescript', 'Vervel', 'Tailwind CSS']
 ---
 
-<h4>Yeah! You read that right.</h4>
+<h3>Yeah! You read that right.</h3>
+
 I am thrilled to share the journey of creating a blazingly fast website using Next.js. From optimizing performance to leveraging the most advanced features of Next.js, this post will unveil the secrets behind achieving an impressive load time of just 0.3 seconds.
 
 <h4>Why care about Performance ? </h4>
@@ -16,7 +17,8 @@ It's 2024 and developing a website is no longer just writing HTML, CSS and JS. S
 
 As witnessed in the relentless releases of JavaScript frameworks in 2022 and 2023, 2024 is poised to witness a different kind of competition - a war of speed and performance.  As developers, we find ourselves not just coding for functionality but also optimizing for speed.
 
-<h4>How to Optimize Performance ? </h4>
+<h3>How to Optimize Performance ? </h3>
+
 There are hundreds of best practices, that we can apply to our project but will that really help us increse performnace ? `No` . Optimizing performnace is not another good practice that we can adapt to our workflow. A good workflow and the best methadologyy give optimized performance as a result. Few thing that we have to employ while developing application are `Prefecthing`, `Incremental Rendering`, `Search Engine Optimization` and `Handling the initial page load` . 
 
 Google introducted [`Web Vitals`](https://developers.google.com/search/docs/appearance/core-web-vitals) in 2020. Web Vitals is a set of metrics that measure real-world user experience for loading performance, interactivity, and visual stability of the page.
@@ -36,13 +38,15 @@ In addition to LCP we also have to consider about [First Contentful Paint (FCP)]
 
 It is very curcial that we developers achieve good Web Vitals for success with Search and to ensure a great user experience generally. Yes, depending on these metrics the website that performance the best will be displaed first in the search results.
 
-<h4>How i made my blog wesbite load in 0.4 seconds ?</h4>
+<h3>How i made my blog wesbite load in 0.4 seconds ?</h3>
 
 The answer is `I used Next.js`
 
 I used the most advanced features of `Next.js 14` such as ` Server Side Rendering (SSR)`, `Static Site Generation(SSG)` , ` Incremental Static Regeneration(ISR)` , `Client Side Rendering (CSR)` , `Server Actions` and `Image Optimization` .
 
 `Server Side Rendering (SSR)` uses the server resources. The initial HTML for the page is prerendered from the server, followed by "hydrating" the page in the browser (making it interactive). This allows us to send less JavaScript to the client, while maintaining the rendered HTML from the server. 
+
+> There are no silver bullets to Web performance. Simple static pages benefit being server-rendered with minimal Javascript. 
 
 `Static Site Generation(SSG)` is a technique in which we pre-render a page at build time. We fetch data from an external API or directly from a database, and pass this data down to the entire page as it's being generated during the build. Pages built with SSG can also be cached via CDN unlike pages built using SSR. So response time is significantly low compared to SSR. Gives better performance and SEO score.
 
@@ -58,13 +62,11 @@ Next.js offers a Image component which is a extension of the standard HTML. This
 
 And this is how i made my blog website load in 0.4 seconds. Using all the modern advancements offered by Next.js 
 
-<h4>My Performance metrix</h4>
+<h3>My Performance metrix</h3>
 
 I have done testing in [GT metrix](https://gtmetrix.com/reports/blog-vikramp.vercel.app/m992KuIl/) and Google Lighthouse.
 
 Performance ans Structure - `100 %` . 
-
-> There are no silver bullets to Web performance. Simple static pages benefit being server-rendered with minimal Javascript. 
 
 LCB: 285 ms. How i got such a score ? I didn't use Google font import in my CSS file. I used font from `next/font/google`. So that way, I m avoiding the delay from Google's response and I [pre build my pages with the font](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) I want.
 
@@ -77,17 +79,14 @@ CLS: 0 (Perfect)
 <CustomImage src="https://raw.githubusercontent.com/Vikram0118/blogposts-mdx/main/Images/page-details.png" alt="Gt metrix full details" priority="true" />
 
 Google Lighthouse metrix:
+`Performance - 100 %` . 
+Next.js allows me to generate Meta data for all the pages and maximizes SEO.
 
 <CustomImage src="https://raw.githubusercontent.com/Vikram0118/blogposts-mdx/main/Images/lighthouse-data.png" alt="Google light house metrix" priority="true" />
 
-`Performance - 100 %` 
+<h3>Conclusion</h3>
 
-Next.js allows me to generate Meta data for all the pages and maximizes SEO.
-
-
-<h4>Conclusion</h4>
-
-In conslusion, performance really matters.
+In conslusion, performance really matters and with all the recent advancements, attaining such a great performance is really easy.
 
 As I m writing this article, Next.js is being updated under the hood and new features and advancements are getting released every single day. I will keep this website as my test bench and experiment all the new features. I also continue to write more articles like this about the advancements in web development. 
 
